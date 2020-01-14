@@ -6,7 +6,7 @@ import Nav from './Componentes/Nav/app';
 import Transição from './Páginas/Transição/app';
 
  
- 
+  
 function App() {
   
   return (
