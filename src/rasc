@@ -1,0 +1,65 @@
+  //SALVANDO OS PEDIDOS NA COLEÇÃO DOS QUE VAI PARA COZINHA
+  // function enviarPedido(item){
+  //   setPedido(estadoAtual => [...estadoAtual, item])
+  // }
+
+  // useEffect(() => {   // Rafa disse que não precisa do useEffect para add, pois ele é só pra carregar a página, mas então é como?
+  //     db.collection('Pedidos').add({
+  //   {Nome},
+  //   {Preço}
+  // })      
+  //       }, [])
+
+
+   // ISSO JÁ É LÁ NA COZINHA
+  // useEffect(() => {
+  //   db.collection('Pedido').get()
+  //     .then((snapshot) => {
+  //       const NewPedidos = snapshot.docs.map((doc) => ({
+  //         ...doc.data()
+  //       }))
+
+  //       setPedido(NewPedidos)
+
+  //     })
+  // }, [0])
+
+
+     {/* {elem.options.length.map( x => {
+            console.log(x)
+          })}
+               {console.log(elem)}  */}
+
+
+          // (<Card key={menu} name={item.Nome}  price={item.Preço}> 
+          //   </Card>)
+
+
+ {/* <div>
+          <h3>Lista de selecionados</h3>
+          {NewMenu.map((item) => (
+            <button onClick={() => props.Pedidos(item)}>
+              {item.Nome}
+              <span>R$ {item.Preço}</span>
+            </button>
+        
+          ))}
+        </div>
+          */}
+
+      {/* <div>
+          <h3>Lista de selecionados</h3>
+          {tipoMenu.map((item) => (
+            <button onClick={() => props.Pedidos(item)}>
+              {item.Nome}
+              <span>R$ {item.Preço}</span>
+            </button>
+        
+          ))}
+        </div> */}
+
+
+  //const [tipoMenu, setTipoMenu] = useState(["Lanches"]);
+
+  {/* <button onClick={() => tipoDeMenu("Café da manhã")}>Café da manhã</button>
+            <button onClick={() => tipoDeMenu("Lanches")}>Lanches</button> */}
