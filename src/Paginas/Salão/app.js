@@ -1,6 +1,6 @@
 
 import React , {useEffect} from 'react';
-import db  from 'react';
+ import db  from 'react';
 import Menu from '../../Componentes/Menu/app';
 //import Transição from '../Transição/app';
 import { StyleSheet, css } from 'aphrodite'
@@ -16,16 +16,6 @@ function Salão(){
       </div>
     )
 }
-
-// function navCozinha() {
-//   return (
-//       <nav>                    
-//           <Link to="/Cozinha"> 
-//               <button className={css(styles.btnInicio)}>Cozinha</button>
-//           </Link>
-//       </nav>
-//   )
-// }
 
 
 export default Salão

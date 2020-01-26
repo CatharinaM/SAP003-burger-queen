@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Salão from './Páginas/Salão/app';
-import Cozinha from './Páginas/Cozinha/app';
+import Salão from './Paginas/Salão/app';
+import Cozinha from './Paginas/Cozinha/app';
 import Nav from './Componentes/Nav/app';
-import Transição from './Páginas/Transição/app';
+import Transição from './Paginas/Transição/app';
 
  
-  
+   
 function App() {
   
   return (

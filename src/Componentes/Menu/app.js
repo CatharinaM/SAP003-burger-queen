@@ -1,15 +1,16 @@
-
-import db from '../../firebase'
+import db from '../../firebase';
 import React, { useState, useEffect } from 'react';
 import Button from '../Button/app';
-import { StyleSheet, css } from 'aphrodite'
-import ButtonGeral from '../Button/button'
-import Input from '../Input/app.js'
-import { Link } from 'react-router-dom'
-import lixo from '../img/trash.png'
+import { StyleSheet, css } from 'aphrodite';
+import ButtonGeral from '../Button/button';
+import Input from '../Input/app.js';
+import { Link } from 'react-router-dom';
+import trash from '../img/trash.png';
+import alertify from 'alertifyjs';
+import imgFundo from '../img/Fundo.jpg';
 
 const Menu = (props) => {
- 
+
   const [menu, setMenu] = useState([]);
   const [menuEscolhido, setMenuEscolhido] = useState([]);
   const [pedido, setPedido] = useState([]);
@@ -81,14 +82,15 @@ const Menu = (props) => {
 
       })
         .then(() => {
+          alertify.success('Seu pedido foi enviado com sucesso!');
           setCliente([''])
           setMesa([''])
           setPedido([])
         })
     } else if (!cliente) {
-      alert('Digite o nome')
+      alertify.error('Digite o nome')
     } else if (!mesa) {
-      alert('Digite a mesa')
+      alertify.error('Digite a mesa')
     }
   }
 
@@ -102,7 +104,7 @@ const Menu = (props) => {
 
   const addOptionsAndExtras = () => {
     if (!options) {
-      alert('Escolha a opção')
+      alertify.error('Escolha a opção')
     } else {
       const add = {
         ...modal.item,
@@ -119,9 +121,10 @@ const Menu = (props) => {
 
   return (
     <div className={css(styles.container)}>
-     
+
       <header className={css(styles.logo)}>
-        <img className={css(styles.img)} src={require("../img/BGB.png")} alt="Logo da imagem"></img>
+        <img className={css(styles.img)} src={require("../img/burgerImport.png")} alt="Logo da imagem"></img>
+        <h1>BURGER QUEEN</h1>
         <Link to='/Cozinha'>
           <button className={css(styles.btnCozinha)}>Cozinha</button>
         </Link>
@@ -193,7 +196,7 @@ const Menu = (props) => {
               </span>
                 <ButtonGeral className={css(styles.btnDeletar)}
                   onClick={(e) => { e.preventDefault(); deletarPedido(elem) }}
-                  img={lixo}
+                  img={trash}
                 />
               </div>
             </div>
@@ -219,7 +222,17 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
-    background: 'white'
+    // background: '#1C150F'
+    // background:'#303030'
+    // background:'#403501'
+    // background:'#404040'
+    // // background: '#7c7676'
+    // backgroundImage: 'url("./img/Fundo.jpg")',
+    backgroundImage: `url(${imgFundo})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
+    backgroundAttachment: 'fixed'
   },
 
   logo: {
@@ -227,11 +240,18 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '14rem'
+    height: '14rem',
+    fontFamily: 'Just Me Again Down Here',
+    fontStyle: 'cursive',
+    fontSize: '30px',
+    color:'rgb(255, 153, 0)',
+    textShadow: '8px 8px black'
+    // margin: 'green'
   },
 
   img: {
-    width: '30%',
+    // width: '30%',
+    width: '14%'
   },
 
   main: {
@@ -244,7 +264,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize:'25px'
+    fontSize: '25px'
   },
 
   btn: {
@@ -256,10 +276,10 @@ const styles = StyleSheet.create({
     margin: '10px',
     height: '6rem',
     width: '9rem',
-    backgroundColor:'white',
-    borderColor:'rgb(255, 153, 0)',
-    boxShadow:'0-3px 5px #555',
-    fontWeight:'bold'
+    backgroundColor: 'white',
+    borderColor: 'rgb(255, 153, 0)',
+    boxShadow: '0-3px 5px #555',
+    fontWeight: 'bold'
   },
 
   divBtnFiltro: {
@@ -268,75 +288,89 @@ const styles = StyleSheet.create({
   },
 
   btnFiltro: {
+    ':hover': {
+      backgroundColor: '#087C35',
+    },
     borderRadius: '10px',
     padding: '12px',
     margin: '10px',
     height: '3rem',
     width: '10rem',
-    backgroundColor:'white',
-    borderColor:'rgb(255, 153, 0)',
-    boxShadow:'0-3px 5px #555',
-    fontWeight:'bold'
+    backgroundColor: 'white',
+    borderColor: 'rgb(255, 153, 0)',
+    boxShadow: '0-3px 5px #555',
+    fontWeight: 'bold'
   },
 
   cardapio: {
     display: 'block',
-    background: '#CC6600',
-    borderColor: '#CC6600',
+    // background: '#720201',
+    // borderColor: '#CC6600',
     color: 'white',
     margin: '10px',
     padding: '10px',
-    border: '1px solid #CC6600',
-    width: '60%',
-    borderRadius: '20px',
+    borderRight: '4px solid white',
+    // border: '4px solid white',
+    width: '55%',
+    // borderRadius: '10px',
     justifyContent: 'space-around',
     alignItems: 'center'
   },
 
   pedidos: {
     display: 'block',
-    background: '#FF9900',
+    // background: '#FF9900',
     color: '#FFF',
     margin: '10px',
     padding: '10px',
-    border: '1px solid #CC6600',
-    width: '40%',
-    borderRadius: '20px'  
+    // border: '1px solid #CC6600',
+    width: '45%',
+    borderRadius: '20px'
   },
 
-  tituloPedido:{
+  tituloPedido: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize:'25px'
+    fontSize: '25px'
   },
 
   btnRadio: {
-    // border: '0px',
+    //border: '0px',
     // width: '100%',
     // left: '2em'
-    // display: 'block',
+    //display: 'flex',
+    // position: 'relative',
+    // paddingLeft:' 35px',
+    // marginBottom: '12px',
+    // cursor: 'pointer',
+    // fontSize: '18px',
+    // height: '1em',
+    // width:'2em',
+    // height: '1vh',
+    // width:'1vw'
     position: 'relative',
-    paddingLeft:' 35px',
-    marginBottom: '12px',
-    cursor: 'pointer',
-    fontSize: '18px'
+    fontSize: '20px',
+    bottom: '0',
+    right: '0',
+    left: '0',
+    color: 'rgba(#000, .4)'
   },
 
-  letras:{
-    fontSize: '20px'
+  letras: {
+    // fontSize: '40px'
   },
 
   input: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
-    marginTop:'10px'
+    marginTop: '10px'
   },
 
   inputCli: {
     borderRadius: '10px',
-    padding:'8px'
+    padding: '8px'
     // display: 'flex',
     // flexdirection: 'row',
     // padding: '5px',
@@ -356,34 +390,37 @@ const styles = StyleSheet.create({
     marginBottom: '8px'
   },
 
-  btnAdicionar:{
-    boxShadow:'0-3px 5px #555',
-    borderColor:'rgb(255, 153, 0)',
-    fontWeight:'bold',
+  btnAdicionar: {
+    boxShadow: '0-3px 5px #555',
+    borderColor: 'rgb(255, 153, 0)',
+    fontWeight: 'bold',
     backgroundColor: 'white',
-    padding:'10px',
-    marginTop:'20px',
+    padding: '10px',
+    marginTop: '20px',
     borderRadius: '10px',
     marginBottom: '8px'
   },
 
   btnEnviar: {
+    ':hover': {
+      backgroundColor: '#087C35',
+    },
     display: 'block',
     borderRadius: '10px',
-    borderColor:'rgb(255, 153, 0)',
-    boxShadow:'0-3px 5px #555',
-    fontWeight:'bold',
+    borderColor: 'rgb(255, 153, 0)',
+    boxShadow: '0-3px 5px #555',
+    fontWeight: 'bold',
     backgroundColor: 'white',
-    padding:'10px',
-    marginTop:'20px'
+    padding: '10px',
+    marginTop: '20px'
   },
 
-  btnCozinha:{
-    boxShadow:'0-3px 5px #555',
-    fontWeight:'bold',
+  btnCozinha: {
+    boxShadow: '0-3px 5px #555',
+    fontWeight: 'bold',
     backgroundColor: 'white',
-    padding:'10px',
-    marginTop:'20px',
+    padding: '10px',
+    marginTop: '20px',
     marginLeft: '80px'
   }
 })

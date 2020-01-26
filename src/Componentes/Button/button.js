@@ -1,5 +1,5 @@
 import React from 'react';
-import lixo from '../img/trash.png'
+import trash from '../img/trash.png'
 
 function ButtonGeral(props) {
     return (
@@ -9,7 +9,7 @@ function ButtonGeral(props) {
        className={props.className}
        onClick={props.onClick} >
        {props.title}
-       {props.img && <img src={lixo}></img>}
+       {props.img && <img src={trash}></img>}
        </button>   
     )
   

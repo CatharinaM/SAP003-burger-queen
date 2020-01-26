@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "alertifyjs": "^1.13.1",
     "aphrodite": "^2.4.0",
     "firebase": "^7.5.2",
     "react": "^16.12.0",
