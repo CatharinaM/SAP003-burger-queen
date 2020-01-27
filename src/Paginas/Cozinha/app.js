@@ -39,20 +39,24 @@ function Cozinha() {
 
     return (
         <div className={css(styles.fundo)}>
-            <header>
-                <h2 className={css(styles.tituloCozinha)}>Cozinha</h2>
-                <Link to='/Salão'>
-                    <button className={css(styles.btnSalao)}>Salão</button>
-                </Link>
+            <header className={css(styles.cabecalho)}>
+            <Link to='/Salão'>
+                <button className={css(styles.btnSalao)}>Salão</button> 
+            </Link>  
+
+            <h2 className={css(styles.tituloCozinha)}>Cozinha</h2> 
+                
             </header>
+
+            <section className={css(styles.caixas)}>
             {pedido.map((doc, indexItem) => {
                 if (doc.status === "Preparo") {
-                    return (<div className={css(styles.caixas)} key={indexItem}>
+                    return (<div  key={indexItem}>
                         <Card className={css(styles.cardCozinha)}>
                             <div className={css(styles.cardCozinhaPedidos)}>
                                 {/* <p className={css(styles.textCozinhaStatus)}><strong>Status:</strong> Preparando... </p> */}
-                                <p className={css(styles.textCozinha)}><strong>Cliente:</strong> {doc.cliente} </p>
-                                <p className={css(styles.textCozinha)}><strong>Mesa:</strong> {doc.mesa}</p>
+                                <span className={css(styles.textCozinha)}><strong>Cliente:</strong> {doc.cliente} </span>
+                                <span className={css(styles.textCozinha)}><strong>Mesa:</strong> {doc.mesa}</span>
                                 <p className={css(styles.textCozinha)}><strong>Pedido foi feito às:</strong> {doc.time}</p>
                             </div>
                             {
@@ -67,13 +71,23 @@ function Cozinha() {
                 }
             }
             )}
+             </section>
         </div>
+        
     )
 }
 
 export default Cozinha
 
 const styles = StyleSheet.create({
+
+    cabecalho: {
+        display:'flex',
+        justifyContent: 'space-around',
+        alignItems:'center',
+        width: '100%'
+
+    },
 
     cardCozinha: {
         border: 'solid',
@@ -82,44 +96,56 @@ const styles = StyleSheet.create({
         borderRadius: '4px',
         borderColor: '#CC9933',
         width: '30rem',
-        marginBottom: '10px',
-        marginTop: '6px',
-        marginLeft: '20px',
+        // marginBottom: '20px',
+        // marginTop: '20px',
+        // marginLeft: '20px',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         fontSize: '25px',
         boxShadow: '0-3px 5px #555',
+        display:'flex',
+        flexDirection: 'column',
+        marginTop:'20px',
+        padding: '18px 0px'
     },
 
     caixas: {
+        display:'flex',
+        flexDirection: 'column',
+        justifyContent:'space-around'
+        // marginTop: '20px',
         // display: 'inline-block',
         // alignItems: 'center',
         // justifyContent: 'center'
     },
 
-    textCozinhaStatus:{
-        color: 'red',
-        fontSize: '20px',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginLeft: '30px',
-    },
+    // textCozinhaStatus:{
+    //     color: 'red',
+    //     fontSize: '20px',
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    //     marginLeft: '30px',
+    // },
 
     textCozinha: {
-        fontSize: '20px',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginLeft: '30px',
+        // fontSize: '20px',
+        // alignItems: 'center',
+        // display:'flex',
+        // justifyContent: 'space-between',
+        // width:'10rem'
+        marginLeft: '35px',
+        // marginTop: '50px'
     },
 
     btnSalao: {
+        // display:'inline-block',
         boxShadow: '0-3px 5px #555',
         fontWeight: 'bold',
         backgroundColor: 'white',
         padding: '10px',
-        marginTop: '20px',
-        marginLeft: '80px',
-        marginBottom: '8px',
+        // marginTop: '20px',
+        // marginLeft: '80px',
+        // marginBottom: '8px',
         width: '100px'
     },
 
@@ -138,6 +164,7 @@ const styles = StyleSheet.create({
         fontStyle: 'cursive',
         color: 'white',
         textShadow: '8px 8px black',
+        marginRight: '33%'
     },
 
     fundo: {
@@ -154,7 +181,8 @@ const styles = StyleSheet.create({
         // display: 'grid',
         // gridTemplateColumns: '1fr 2fr',
         justifyContent: 'space-around',
-        alignItems: 'center'
+        alignItems: 'center',
+        // width:'100%'
         // height: '100vh',
         // width: '100vw'
     },
@@ -167,9 +195,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         backgroundColor: 'white',
         padding: '10px',
-        marginTop: '20px',
-        marginLeft: '100px',
-        marginBottom: '20px',
+        // marginTop: '20px',
+        // marginLeft: '100px',
+        // marginBottom: '20px',
         width: '80px'
     }
 

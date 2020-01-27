@@ -54,5 +54,8 @@ const styles = StyleSheet.create({
         borderRadius: '10px',
         padding: '60px 100px',
         fontSize: '2rem',
+        border: '4px solid',
+        borderColor: 'rgb(255, 153, 0)',
+        boxShadow: '0-3px 5px #555',
     }
 })

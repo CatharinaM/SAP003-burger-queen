@@ -141,6 +141,7 @@ const Menu = (props) => {
             <ButtonGeral className={css(styles.btnFiltro)} onClick={() => tipoDeMenu("Lanches")} title={'Lanches'} />
           </div>
 
+        <div className={css(styles.divBtnCardapio)}>
           {menuEscolhido.map((item) => {
             return <Button
               className={css(styles.btn)}
@@ -151,6 +152,7 @@ const Menu = (props) => {
               onClick={() => verOptions(item)}
             />
           })}
+          </div>
         </section>
 
 
@@ -217,11 +219,19 @@ export default Menu;
 
 const styles = StyleSheet.create({
 
+  divBtnCardapio:{
+  width:'100%',
+  display:'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'space-around'
+  },
+
   container: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
+    height: '100vh',
     // background: '#1C150F'
     // background:'#303030'
     // background:'#403501'
@@ -232,7 +242,8 @@ const styles = StyleSheet.create({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
-    backgroundAttachment: 'fixed'
+    backgroundAttachment: 'fixed',
+    // width: '100vw'
   },
 
   logo: {
@@ -289,6 +300,9 @@ const styles = StyleSheet.create({
 
   btnFiltro: {
     ':hover': {
+      backgroundColor: '#087C35',
+    },
+    ':active': {
       backgroundColor: '#087C35',
     },
     borderRadius: '10px',
@@ -387,7 +401,8 @@ const styles = StyleSheet.create({
 
   btnDeletar: {
     marginLeft: '0,5%',
-    marginBottom: '8px'
+    marginBottom: '8px',
+    marginRight: '10%'
   },
 
   btnAdicionar: {
