@@ -1,29 +1,21 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Salão from './Paginas/Salão/app';
-import Cozinha from './Paginas/Cozinha/app';
-import Nav from './Componentes/Nav/app';
-import Transição from './Paginas/Transição/app';
+import Hall from './Paginas/Hall/index';
+import kitchen from './Paginas/kitchen/index';
+import Nav from './Componentes/Nav/index';
+// import Transição from './Paginas/Transição/index';
 
- 
-   
 function App() {
-  
   return (
- 
     <BrowserRouter>
-       {/* <div>
-        <img  src={require('../src/Componentes/img/BGB.npg')} alt="Logo da imagem"></img>
-      </div> */}
-        <Switch>
-          <Route exact path="/" component={Nav} />
-          <Route path="/Salão" component={Salão} />
-          <Route path="/Cozinha" component={Cozinha} />
-          <Route path="/Transição" component={Transição} />
-        </Switch>
+      <Switch>
+        <Route exact path="/" component={Nav} />
+        <Route path="/Hall" component={Hall} />
+        <Route path="/kitchen" component={kitchen} />
+        {/* <Route path="/Transição" component={Transição} /> */}
+      </Switch>
     </BrowserRouter>
   );
 }
 
 export default App;
- 

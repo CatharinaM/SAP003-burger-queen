@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { StyleSheet, css } from 'aphrodite';
-import imgFundo from '../img/Fundo.jpg';
+import imgbackground from '../img/background.jpg';
 
 function Nav() {
     return (
@@ -15,11 +15,11 @@ function Nav() {
 
 
             <section className={css(styles.links)}>
-                <Link to="/Salão">
-                    <button className={css(styles.btnInicio)}>Salão</button>
+                <Link to="/Hall">
+                    <button className={css(styles.btnStart)}>Salão</button>
                 </Link>
-                <Link to="/Cozinha">
-                    <button className={css(styles.btnInicio)}>Cozinha</button>
+                <Link to="/kitchen">
+                    <button className={css(styles.btnStart)}>Cozinha</button>
                 </Link>
             </section>
 
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection:'column',
         alignItems: 'center',
-        backgroundImage: `url(${imgFundo})`,
+        backgroundImage: `url(${imgbackground})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         marginBottom: '50px'
     },
 
-    btnInicio: {
+    btnStart: {
         ':hover': {
             backgroundColor: '#CC9933',
         },

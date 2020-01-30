@@ -25,8 +25,10 @@
 * Firebase
 
 ## 3. Imagens
-![Home](home.png)
-![salao](salao.png)
-![cozinha](cozinha.png)
+![Home](src/Componentes/img/home.png)
+
+![salao](src/Componentes/img/salao.png)
+
+![cozinha](src/Componentes/img/cozinha.png)
 
 
