@@ -17,7 +17,7 @@ const Menu = (props) => {
   const [table, setTable] = useState('');
   const [client, setClient] = useState('');
 
-  const [modal, setModal] = useState({ staus: false });
+  const [modal, setModal] = useState({ status: false });
   const [options, setOptions] = useState('');
   const [selectextras, setSelectExtras] = useState('');
 
@@ -49,7 +49,7 @@ const Menu = (props) => {
 
   //ADICIONANDO OS PEDIDOS FEITOS
   function makeOrder(item) {
-    setOrder( currentState => [... currentState, { ...item }])
+    setOrder(currentState => [...currentState, { ...item }])
   }
 
   //DELETANDO OS PEDIDOS
@@ -111,8 +111,9 @@ const Menu = (props) => {
       }
 
       makeOrder(add)
-      setModal({ staus: false })
-      setSelectExtras("")
+      setModal({ status: false })
+      setSelectExtras('')
+      setOptions('')
     }
   }
 
@@ -164,7 +165,7 @@ const Menu = (props) => {
           <h3 className={css(styles.titleOrder)}>Pedido</h3>
 
           {modal.status ? (
-            <div className={css(styles.btnRadio)}>
+            <div className={css(styles.teste)}>
               <p>Extras:</p>
               {modal.item.extras.map(elem => (
                 <div>
@@ -256,7 +257,11 @@ const styles = StyleSheet.create({
   main: {
     display: 'flex',
     justifyContent: 'space-around',
-    margin: 'none'
+    margin: 'none',
+    '@media screen and (max-width: 1024px)': {
+      height: '100%',
+      marginBottom: '50%'
+    }
   },
 
   titleMenu: {
@@ -322,9 +327,6 @@ const styles = StyleSheet.create({
     padding: '10px',
     width: '45%',
     borderRadius: '20px',
-    // verticalAlign: 'middle',
-    // appearance:'none',
-    // margin:'0 40px'
   },
 
   titleOrder: {
@@ -345,28 +347,15 @@ const styles = StyleSheet.create({
     right: '0',
     left: '0',
     color: 'rgba(#000, .4)',
-    // width: '20px',
-    // height: '20px',
+    width: '20px',
+    height: '20px',
   },
-
-
-  //   btnRadio: {
-  //   appearance:'none',
-  //   // -mozAppearance: 'none',
-  //   // -webkitAppearance: 'none',
-  //   margin:'0 40px',
-  //   width: '24px',
-  //   height: '24px',
-  //   background: '#eeeeee',
-  //   // box-shadow: inset 0 0 0 .4em white,
-  //   //   0 0 0 .1em;
-  //   borderRadius: '50%',
-  //   transition: '.2s',
-  //   cursor:'pointer',
-  //   color: '#09224E',
-  //   margin: '10px',
-  //   verticalAlign: 'middle'
-  // },
+  teste: {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+    fontSize: '20px',
+  },
 
   letters: {
     fontSize: '20px'
@@ -404,7 +393,8 @@ const styles = StyleSheet.create({
     padding: '10px',
     marginTop: '20px',
     borderRadius: '10px',
-    marginBottom: '8px'
+    marginBottom: '20px',
+    width: "105px"
   },
 
   btnSend: {
@@ -418,7 +408,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     backgroundColor: 'white',
     padding: '10px',
-    marginTop: '20px'
+    marginTop: '20px',
   },
 
   btnKitchen: {

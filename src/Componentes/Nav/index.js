@@ -34,13 +34,13 @@ const styles = StyleSheet.create({
         height: '100vh',
         width: '100%',
         display: 'flex',
-        flexDirection:'column',
+        flexDirection: 'column',
         alignItems: 'center',
         backgroundImage: `url(${imgbackground})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
-        backgroundAttachment: 'fixed'
+        backgroundAttachment: 'fixed',
     },
 
     logo: {
@@ -54,7 +54,11 @@ const styles = StyleSheet.create({
         fontSize: '30px',
         color: 'rgb(255, 153, 0)',
         textShadow: '8px 8px black',
-        padding:'5%'
+        padding: '5%',
+        '@media screen and (max-width: 1024px)': {
+            height: '35%',
+            padding:'5px'
+        }
     },
 
     img: {
@@ -66,7 +70,11 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'space-around',
         alignItems: 'center',
-        marginBottom: '50px'
+        marginBottom: '50px',
+        // '@media screen and (max-width: 1024px)': {
+        //     height: '200px',
+        //     width: '80%'
+        // }
     },
 
     btnStart: {
